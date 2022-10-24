@@ -51,7 +51,7 @@ input {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(119, 147, 190);
+  background: rgb(41, 49, 62);
   border-radius: 20px;
 }
 
@@ -72,19 +72,127 @@ body.dark {
   background-color: rgb(58, 65, 73);
 }
 
+#myImg {
+  position : fixed;
+  z-index: 1;
+}
+
+#rectangle {
+  width:50%;
+  height:600px;
+  background:rgba(113, 113, 163, 0.486);
+  position:fixed;
+  top:130px;
+  left:860px;
+  border-radius: 30px;
+  }
+
+
 h1 {
   color: rgb(68, 86, 120);
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   font-family: sans-serif;
-  margin-top: 17%;
+  margin-top: 8%;
+  margin-left: 40%;
 }
 
+h2 {
+  color: rgb(68, 86, 120);
+  text-align: left;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 1%;
+  margin-left: 47%;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  margin-left: 900px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+ 
 /* NAV */
 nav {
   height: 50px;
   width: 100%;
-  background-color: rgba(160, 198, 255, 0.39);
+  background-color: rgba(41, 49, 62, 0.774);
   font-family: sans-serif;
   position: fixed;
   top: 0;
@@ -97,7 +205,7 @@ nav .nav-header {
 }
 nav .nav-header a img {
   height: 50px;
-  width: 50px;
+  width: 70px;
   margin-left: 10px;
   overflow: hidden;
   transition-duration: 0.8s;
@@ -109,11 +217,11 @@ nav .nav-header a p {
   padding: 15px 10px 17px 10px;
   font-size: 18px;
   text-decoration: none;
-  color: rgb(68, 86, 120);
+  color: rgb(255, 255, 255);
 }
 nav .nav-header a:hover > img, nav .nav-header a:hover > p {
   transform: rotate(360deg);
-  color: rgba(84, 124, 197, 0.37);
+  color: rgb(41, 49, 62);
 }
 nav .nav-btn {
   display: none;
@@ -127,14 +235,14 @@ nav .nav-links a {
   display: inline-block;
   padding: 15px 10px 17px 10px;
   text-decoration: none;
-  color: rgb(68, 86, 120);
+  color: rgb(255, 255, 255);
 }
 nav .nav-links a:hover {
-  color: rgba(84, 124, 197, 0.39);
+  color: rgb(41, 49, 62);
 }
 
 body.dark nav {
-  background-color: rgba(41, 49, 62, 0.9);
+  background-color: rgba(41, 49, 62, 0.541);
 }
 
 .contaner-chekbox {
@@ -189,6 +297,75 @@ nav > #nav-check {
     box-shadow: 0 0 0 0 rgba(44, 100, 204, 0);
   }
 }
+/* Track */
+#track-container {
+  max-width: 1300px;
+  margin: 65px auto 15px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.track-item {
+  border-radius: 5px;
+  background-color: rgba(41, 49, 62, 0.774);
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+}
+.track-item p {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+}
+.track-item iframe {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 70%;
+  border-radius: 3px;
+}
+.track-item .buttons {
+  cursor: pointer;
+  padding: auto;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+body.dark .track-item {
+  background-color: rgba(41, 49, 62, 0.8);
+}
+
+.bt-download {
+  background-color: rgba(55, 155, 255, 0.8);
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+.bt-download:hover {
+  background-color: rgb(32, 68, 178);
+  text-decoration: underline;
+}
+
+.bt-repositorie {
+  background-color: rgba(68, 86, 120, 0.8);
+  border-radius: 3px;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+.bt-repositorie:hover {
+  background-color: rgb(52, 58, 64);
+  text-decoration: underline;
+}
+
+
+
+
+
 /* GRID */
 #grid-container {
   max-width: 1300px;
@@ -200,7 +377,7 @@ nav > #nav-check {
 
 .grid-item {
   border-radius: 5px;
-  background-color: rgba(160, 198, 255, 0.356);
+  background-color: rgba(41, 49, 62, 0.774);
   text-align: center;
   padding: 15px 15px 15px 15px;
 }
@@ -208,7 +385,7 @@ nav > #nav-check {
   font-family: sans-serif;
   font-weight: bold;
   font-size: 22px;
-  color: rgb(68, 86, 120);
+  color: rgb(255, 255, 255);
 }
 .grid-item iframe {
   margin-top: 5px;
@@ -242,7 +419,7 @@ body.dark .grid-item {
 }
 
 .bt-repositorie {
-  background-color: rgba(134, 142, 150, 0.8);
+  background-color: rgba(68, 86, 120, 0.8);
   border-radius: 3px;
   padding: 10px 10px 10px 10px;
   display: inline-block;
@@ -258,7 +435,7 @@ body.dark .grid-item {
 footer {
   position: absolute;
   width: 100%;
-  background: rgb(160, 198, 255);
+  background: rgb(41, 49, 62, 0.774);
   padding: 40px 40px;
   border-top: 2px solid rgb(119, 147, 190);
   font-family: sans-serif;
@@ -332,7 +509,7 @@ footer .footer-icons a:hover {
 }
 
 body.dark footer {
-  background: rgb(41, 49, 62);
+  background: rgba(41, 49, 62, 0.774);
 }
 
 @media (orientation: portrait) {
@@ -379,7 +556,7 @@ body.dark footer {
   }
   nav .nav-btn label:hover,
 nav .nav-btn label nav #nav-check:checked ~ .nav-btn > label {
-    color: rgba(84, 124, 197, 0.377);
+    color: rgb(84, 124, 197);
   }
   nav .nav-links {
     position: absolute;
@@ -388,13 +565,13 @@ nav .nav-btn label nav #nav-check:checked ~ .nav-btn > label {
     height: 0px;
     width: 100%;
     display: block;
-    background-color: rgb(160, 198, 255);
+    background-color: rgb(41, 49, 62, 0.774);
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     text-align: center;
   }
   nav .nav-links a {
-    border-top: 2px solid rgba(119, 147, 190, 0.404);
+    border-top: 2px solid rgb(119, 147, 190);
     display: block;
     width: 100%;
     padding: 43px 40px 43px 40px;
@@ -426,6 +603,8 @@ nav .nav-btn label nav #nav-check:checked ~ .nav-btn > label {
     grid-template-columns: repeat(1, 1fr);
     margin: 15px auto 15px;
   }
+
+
   /* FOOTER */
   footer {
     font: bold 14px sans-serif;
@@ -460,10 +639,10 @@ footer .footer-right {
 .loader img {
   position: absolute;
   top: 50%;
-  left: 47%;
+  left: 43%;
   transform: translate(-50%, -50%);
-  width: 105px;
-  height: 105px;
+  width: 255px;
+  height: 205px;
   animation: rotation 1.5s infinite linear;
 }
 
@@ -515,7 +694,7 @@ footer .footer-right {
 
 @keyframes flash {
   0% {
-    color: rgb(68, 86, 120);
+    color: rgb(255, 255, 255);
     text-shadow: 0 0 7px rgb(68, 86, 120);
   }
   90% {

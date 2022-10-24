@@ -1,0 +1,164 @@
+<html>
+	<head>
+		<style>
+			body{
+				background-color: #ccc;
+			}
+
+			.girls{
+				margin-top:10%;
+			}
+
+			#images img{
+				box-shadow: -5px -5px 10px 0px #aaa,  5px 5px 10px 0px #aaa;
+			}
+
+			/* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+		</style>
+
+		<!-- librairie jquery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<!-- librairie bootstrap -->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all"/>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	</head>
+	<body>
+	<div class="container-fluid">
+
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+  			<!-- The Close Button -->
+  			<span class="close">Fermer image</span>
+
+  			<!-- Modal Content (The Image) -->
+  		<img class="modal-content" id="girl">
+	</div>
+
+		<!-- bloc des images -->
+		<div class="row girls">
+
+			<div class="col-sm-3 images">
+					<!-- id image unique !!!-->
+					<img id="girl2" src="http://cdn.playbuzz.com/cdn/534d452c-2f74-4ab7-848b-9a52da2d408a/52f60395-8542-4da4-8266-ad6982ada1b7.jpg" class="img-responsive">
+			</div>
+          <!-- tu peux ajouter autant d'images que tu veux, il faut juste un id unique pour chaque image -->
+		</div>
+	</div>
+
+
+	<script>
+		//jquery
+		$(document).ready(function(){
+
+			//quand on clique sur une image
+			$("img").on('click', function(){
+				//affichage de la modal en modifiant le css de la modal
+				$("#myModal").css("display", "block");
+
+				//ajout de la source de l'image dans le contenu de la modal en fonction de la source de l'image cliquée
+                //le $(this) fait reference a l'img qui a été cliquée 
+				$("#girl").attr("src", $(this).attr("src"));
+			});
+
+			//si on clique sur le bouton, on ferme la modal en modifiant le css
+			$(".close").on("click", function(){
+				$("#myModal").css("display", "none");
+			});		
+
+		});
+
+	</script>	
+
+
+	</body>
+</html>
